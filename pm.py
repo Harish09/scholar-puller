@@ -75,8 +75,7 @@ if __name__ == "__main__":
 			if arguments.format:
 				# papers.push(new Paper("Conference","Year","Title","Url","Description));
 				# The format I use on my website
-				js = "papers.push(new 
-Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"TODO\"));"
+				js = "papers.push(new Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"TODO\"));"
 				print js
 			else:
 				print first_url
