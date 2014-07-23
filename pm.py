@@ -70,12 +70,13 @@ if __name__ == "__main__":
 	arguments = parser.parse_args()
 
 	if arguments.title != None:
-		# Load config
 		try:
 			first_url = parse_pdfurl( query_web( scholar_query(arguments.title) ) )[0]
 			if arguments.format:
-				# papers.push(new Paper("C","Y","","","D"));
-				js = "papers.push(new Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"D\"));"
+				# papers.push(new Paper("Conference","Year","Title","Url","Description));
+				# The format I use on my website
+				js = "papers.push(new 
+Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"TODO\"));"
 				print js
 			else:
 				print first_url
