@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+
 import urllib2,re,argparse,os,sys
 from urlparse import urlparse
 
@@ -29,10 +31,6 @@ def f_as_list(filename):
 		return -1
 #--/toolbox
 
-class Paper:
-	def __init__(self):
-		pass
-
 #--URL&WEB
 def scholar_query(title):
 	# scholar is actually really good at handling exacts
@@ -62,11 +60,8 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='PaperManager v7.21.2014')
 	
 	actions = parser.add_mutually_exclusive_group()
-	actions.add_argument("-t","--title", type=str,help='Retrieve pdf url from title.')
-	actions.add_argument("-a","--add",type=str,help="Add new paper.")
-	actions.add_argument("-l","--list",help="List all stored papers.",action="store_true")
-
-	parser.add_argument("-f","--format",help="Return partial html formating.",action="store_true")
+	actions.add_argument("-t","--title", type=str,help='Retrieve pdf url from query.')
+	parser.add_argument("-f","--format",help="Format output as js object.",action="store_true")
 	arguments = parser.parse_args()
 
 	if arguments.title != None:
@@ -75,13 +70,11 @@ if __name__ == "__main__":
 			if arguments.format:
 				# papers.push(new Paper("Conference","Year","Title","Url","Description));
 				# The format I use on my website
-				js = "papers.push(new Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"TODO\"));"
+				js = "papers.push(new Paper(\"C\",\"Y\",\""+arguments.title+"\",\""+first_url+"\",\"Your Description\"));"
 				print js
 			else:
 				print first_url
 		except Exception as err:
 			print err
-	elif arguments.list:
-		print 'papers!'
 	else:
-		print 'PaperManager v7.21.2014 \n -h or --help for help'
+		print 'PaperManager (lu 04.07.2015) \n -h or --help for help'
