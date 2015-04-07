@@ -57,7 +57,7 @@ def parse_pdfurl(html):
 #--/URL&WEB
 
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser(description='PaperManager v7.21.2014')
+	parser = argparse.ArgumentParser(description='ScholarPuller (lu 04.07.2015)')
 	
 	actions = parser.add_mutually_exclusive_group()
 	actions.add_argument("-t","--title", type=str,help='Retrieve pdf url from query.')
@@ -77,4 +77,4 @@ if __name__ == "__main__":
 		except Exception as err:
 			print err
 	else:
-		print 'PaperManager (lu 04.07.2015) \n -h or --help for help'
+		print 'ScholarPuller (lu 04.07.2015) \n -h or --help for help'
